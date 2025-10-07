@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINHFANSUB - Phạm Bình Minh</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0a0013, #000000 90%);
+  color: #fff;
+  overflow-x: hidden;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hiệu ứng nền động */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-radial-gradient(circle, rgba(255,0,100,0.15) 0%, transparent 60%);
+  animation: pulse 10s infinite alternate;
+  z-index: -2;
+}
+
+@keyframes pulse {
+  from { filter: hue-rotate(0deg) brightness(1); }
+  to { filter: hue-rotate(360deg) brightness(1.2); }
+}
+
+/* Thẻ chính */
+.profile {
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  border-radius: 30px;
+  padding: 50px 40px;
+  max-width: 450px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 60px rgba(255,0,60,0.4), inset 0 0 30px rgba(255,255,255,0.05);
+  animation: glowBox 3s infinite alternate;
+  z-index: 1; /* Giúp các nút nổi lên */
+}
+
+@keyframes glowBox {
+  from { box-shadow: 0 0 40px #ff004c, inset 0 0 20px #ff0055; }
+  to { box-shadow: 0 0 60px #ff7b00, inset 0 0 30px #ff0077; }
+}
+
+/* Avatar (đứng yên, chỉ sáng nhẹ) */
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #ff004c;
+  object-fit: cover;
+  box-shadow: 0 0 25px #ff004c, 0 0 60px #ff004c;
+  transition: all 0.3s ease;
+}
+
+/* Tên và mô tả */
+h1 {
+  margin-top: 25px;
+  font-size: 32px;
+  background: linear-gradient(90deg, #ff004c, #ff7b00, #ff004c);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+  from { background-position: 0%; }
+  to { background-position: 100%; }
+}
+
+p {
+  margin: 15px 0 25px;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Nút mạng xã hội */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: relative;
+  z-index: 2; /* Đảm bảo click được */
+}
+
+.social-buttons a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ff004c, #ff7b00);
+  box-shadow: 0 0 20px rgba(255,0,100,0.6);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.social-buttons a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+
+.social-buttons a:hover::before {
+  left: 100%;
+}
+
+.social-buttons a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(255,100,0,0.8);
+}
+
+/* Hiệu ứng ánh sáng viền khung */
+.profile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ff004c, #ff7b00, #ff004c);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 5s infinite linear;
+  pointer-events: none; /* Quan trọng: cho phép click xuyên qua */
+}
+
+@keyframes borderGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Chân trang */
+footer {
+  margin-top: 50px;
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<div class="profile">
+  <img src="anhdaidien.png" alt="Ảnh đại diện" class="avatar">
+  <h1>PHẠM BÌNH MINH</h1>
+  <p>MINHFANSUB <b>Lập trình viên html</b>❤️ <br>
+  Đam mê dịch thuật, chia sẻ cách hack roblox đến mọi người 💫</p>
+
+  <div class="social-buttons">
+    <a href="https://www.tiktok.com/@minhfansubhrfs" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/minh.fansub" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com/@herafansub" target="_blank">YouTube</a>
+  </div>
+</div>
+
+<footer>© 2025 MINHFANSUB | Designed with ❤️ by Phạm Bình Minh</footer>
+
+</body>
+</html>
